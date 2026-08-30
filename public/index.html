@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Find your Magic home</title>
+<link rel="stylesheet" href="/css/base.css" />
+<link rel="stylesheet" href="/css/index.css" />
+</head>
+<body>
+  <main class="hero" id="heroMain">
+    <div class="hero-forest" aria-hidden="true">
+      <svg class="forest-layer forest-back" viewBox="0 0 800 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <g class="tree" style="--sway-delay:0s"><path d="M40 220 L40 150 M40 160 Q10 150 15 120 Q25 130 40 120 M40 145 Q65 138 62 112 Q50 122 40 112 M40 130 Q15 122 20 98 Q30 106 40 98" stroke="#1a3324" stroke-width="6" fill="none" stroke-linecap="round"/></g>
+        <g class="tree" style="--sway-delay:0.6s"><path d="M140 220 L140 130 M140 145 Q105 135 112 102 Q124 114 140 102 M140 125 Q170 116 165 86 Q152 98 140 86 M140 108 Q112 98 118 70 Q128 80 140 70" stroke="#193020" stroke-width="7" fill="none" stroke-linecap="round"/></g>
+        <g class="tree" style="--sway-delay:1.2s"><path d="M260 220 L260 145 M260 158 Q225 148 232 116 Q244 128 260 116 M260 138 Q290 130 285 100 Q272 112 260 100" stroke="#1a3324" stroke-width="6" fill="none" stroke-linecap="round"/></g>
+        <g class="tree" style="--sway-delay:0.3s"><path d="M620 220 L620 140 M620 155 Q585 145 592 112 Q604 124 620 112 M620 135 Q650 126 645 96 Q632 108 620 96 M620 118 Q592 108 598 80 Q608 90 620 80" stroke="#193020" stroke-width="7" fill="none" stroke-linecap="round"/></g>
+        <g class="tree" style="--sway-delay:0.9s"><path d="M740 220 L740 150 M740 163 Q705 153 712 120 Q724 132 740 120 M740 143 Q770 134 765 104 Q752 116 740 104" stroke="#1a3324" stroke-width="6" fill="none" stroke-linecap="round"/></g>
+      </svg>
+      <svg class="forest-layer forest-front" viewBox="0 0 800 260" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <g class="tree" style="--sway-delay:0.2s"><path d="M-10 260 L-10 160 M-10 178 Q-45 166 -38 130 Q-25 143 -10 130 M-10 156 Q22 146 16 110 Q2 124 -10 110" stroke="#0f2418" stroke-width="9" fill="none" stroke-linecap="round"/></g>
+        <g class="tree" style="--sway-delay:0.8s"><path d="M780 260 L780 150 M780 170 Q815 158 808 120 Q795 133 780 120 M780 146 Q748 136 754 98 Q768 112 780 98" stroke="#0f2418" stroke-width="10" fill="none" stroke-linecap="round"/></g>
+        <g class="tree" style="--sway-delay:1.4s"><path d="M400 260 L400 175 M400 190 Q365 180 372 148 Q384 160 400 148 M400 172 Q430 164 425 134 Q412 146 400 134" stroke="#102818" stroke-width="8" fill="none" stroke-linecap="round"/></g>
+      </svg>
+    </div>
+
+    <div class="hero-fireflies" id="fireflies"></div>
+    <div class="hero-butterflies" id="butterflies"></div>
+    <div class="hero-glow-ground"></div>
+
+    <div class="hero-title-wrap">
+      <h1 class="hero-title">
+        <span class="sparkle-wrap">Find your<br>Magic home
+          <span class="sparkle sp1">✦</span>
+          <span class="sparkle sp2">✧</span>
+          <span class="sparkle sp3">✦</span>
+          <span class="sparkle sp4">✧</span>
+        </span>
+      </h1>
+    </div>
+
+    <p class="hero-subtitle">ทำแบบทดสอบสั้นๆ เพื่อค้นหาว่าตอนนี้เธออยู่ "บ้าน" ไหนในเส้นทางค้นหาตัวเอง</p>
+
+    <svg class="lantern-figure" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <radialGradient id="lanternGlowGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffe9a8" stop-opacity="0.75" />
+          <stop offset="100%" stop-color="#ffe9a8" stop-opacity="0" />
+        </radialGradient>
+      </defs>
+      <ellipse cx="50" cy="132" rx="26" ry="6" fill="#000" opacity="0.18" />
+      <!-- warm backlight so the child reads clearly against the dark forest -->
+      <ellipse cx="58" cy="86" rx="48" ry="54" fill="url(#lanternGlowGrad)" />
+      <!-- child silhouette, warm dark brown instead of forest-black so it no longer disappears into the background -->
+      <g fill="#33200f">
+        <circle cx="46" cy="30" r="12" />
+        <path d="M30 55 Q46 40 62 55 L60 105 Q46 115 32 105 Z" />
+        <path d="M60 60 Q78 68 76 92 L66 96 Q64 76 55 66 Z" />
+        <path d="M32 60 Q20 70 22 90 L30 92 Q30 74 38 64 Z" />
+        <!-- little satchel -->
+        <path d="M33 68 Q27 75 29 87 L40 87 Q40 75 38 68 Z" fill="#472b12" />
+        <!-- hair bow -->
+        <path d="M52 21 L59 16 L59 26 Z" fill="#472b12" />
+        <path d="M52 21 L45 16 L45 26 Z" fill="#472b12" />
+        <circle cx="52" cy="21" r="2.4" fill="#472b12" />
+      </g>
+      <!-- soft rim-light on the arm nearest the lantern -->
+      <path d="M60 60 Q78 68 76 92 L66 96 Q64 76 55 66 Z" fill="none" stroke="#ffd873" stroke-width="1.4" opacity="0.55" />
+      <!-- lantern -->
+      <g>
+        <rect x="74" y="86" width="8" height="4" fill="#3a2a12" />
+        <circle cx="78" cy="98" r="14" fill="url(#lanternGlowGrad)" opacity="0.8">
+          <animate attributeName="opacity" values="0.45;0.85;0.5;0.9;0.45" dur="3.2s" repeatCount="indefinite" />
+          <animate attributeName="r" values="12;15;12.5;15.5;12" dur="3.2s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="78" cy="98" r="7" fill="#ffd873" opacity="0.9">
+          <animate attributeName="opacity" values="0.6;1;0.65;1;0.6" dur="3.2s" repeatCount="indefinite" />
+        </circle>
+        <rect x="74" y="108" width="8" height="4" fill="#3a2a12" />
+      </g>
+    </svg>
+
+    <div class="hero-cta">
+      <a class="pill-btn" href="/register.html" id="ctaLink">Click</a>
+    </div>
+
+    <div class="hero-transition-veil" id="transitionVeil" aria-hidden="true"></div>
+  </main>
+
+  <script src="/js/fireflies.js"></script>
+  <script src="/js/butterflies.js"></script>
+  <script src="/js/hero-transition.js"></script>
+</body>
+</html>

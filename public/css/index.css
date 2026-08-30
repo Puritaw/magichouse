@@ -1,0 +1,245 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255, 216, 115, 0.18), transparent 55%),
+    linear-gradient(180deg, var(--forest-deepest) 0%, var(--forest-deep) 45%, var(--forest-mid) 100%);
+  padding: 64px 24px 56px;
+}
+
+/* soft light shaft coming from the top-left, like sunlight through leaves */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -15%;
+  width: 70%;
+  height: 130%;
+  background: linear-gradient(115deg, rgba(255, 243, 196, 0.16) 0%, transparent 45%);
+  transform: rotate(8deg);
+  pointer-events: none;
+}
+
+/* ---- forest silhouette with a gentle wind sway loop ---- */
+.hero-forest {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 60%;
+  pointer-events: none;
+  z-index: 0;
+}
+.forest-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.forest-back { opacity: 0.55; filter: blur(0.3px); }
+.forest-front { opacity: 0.9; }
+
+.forest-layer .tree {
+  transform-origin: bottom center;
+  animation: tree-sway 5.5s ease-in-out infinite;
+  animation-delay: var(--sway-delay, 0s);
+}
+.forest-back .tree { animation-duration: 6.5s; }
+.forest-front .tree { animation-duration: 4.5s; }
+
+@keyframes tree-sway {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(1.4deg); }
+  50%  { transform: rotate(0deg); }
+  75%  { transform: rotate(-1.4deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.hero-fireflies {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ---- butterflies drifting across the scene, looping ---- */
+.hero-butterflies {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+.butterfly {
+  position: absolute;
+  width: 26px;
+  height: 18px;
+  opacity: 0;
+  animation: bfly-fly linear infinite, bfly-fade-in ease-out forwards;
+  filter: drop-shadow(0 0 4px rgba(255, 216, 115, 0.35));
+}
+.butterfly svg { width: 100%; height: 100%; display: block; }
+.wing { transform-origin: 20px 14px; animation: bfly-flap 0.35s ease-in-out infinite alternate; }
+.wing-right { animation-delay: 0.02s; }
+
+@keyframes bfly-flap {
+  from { transform: scaleX(1); }
+  to   { transform: scaleX(0.55); }
+}
+
+@keyframes bfly-fly {
+  0%   { transform: translate(0, 0) scale(var(--bfly-scale, 1)); opacity: 0; }
+  8%   { opacity: 0.9; }
+  50%  { transform: translate(calc(var(--drift-x, 60px) * 0.5), calc(var(--drift-y, 0px) * 0.6 - 18px)) scale(var(--bfly-scale, 1)); }
+  85%  { opacity: 0.85; }
+  100% { transform: translate(var(--drift-x, 60px), var(--drift-y, 0px)) scale(var(--bfly-scale, 1)); opacity: 0; }
+}
+@keyframes bfly-fade-in {
+  to { opacity: 0.9; }
+}
+
+.firefly {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--firefly-glow);
+  box-shadow: 0 0 8px 3px rgba(255, 216, 115, 0.85);
+  animation: drift 7s ease-in-out infinite, twinkle 2.4s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+@keyframes drift {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(14px, -22px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+.hero-title-wrap {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 28px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hero-title {
+  font-family: var(--font-script);
+  color: var(--firefly-glow);
+  font-size: clamp(2.6rem, 9vw, 4.2rem);
+  line-height: 1.15;
+  margin: 0;
+  text-shadow:
+    0 0 14px rgba(255, 243, 196, 0.65),
+    0 0 30px rgba(232, 170, 255, 0.35);
+  animation: title-shimmer 4.5s ease-in-out infinite;
+}
+
+@keyframes title-shimmer {
+  0%, 100% {
+    text-shadow:
+      0 0 14px rgba(255, 243, 196, 0.65),
+      0 0 30px rgba(232, 170, 255, 0.35);
+  }
+  50% {
+    text-shadow:
+      0 0 22px rgba(255, 243, 196, 0.95),
+      0 0 44px rgba(232, 170, 255, 0.55);
+  }
+}
+
+.sparkle-wrap { position: relative; display: inline-block; }
+.sparkle {
+  position: absolute;
+  color: var(--firefly-gold);
+  font-size: 1rem;
+  opacity: 0;
+  animation: sparkle-twinkle 3s ease-in-out infinite;
+  pointer-events: none;
+}
+.sp1 { top: -8%;  left: -8%;  font-size: 1.2rem; animation-delay: 0s; }
+.sp2 { top: 6%;   right: -10%; font-size: 0.85rem; animation-delay: 0.8s; }
+.sp3 { bottom: 4%; left: -6%;  font-size: 0.75rem; animation-delay: 1.6s; }
+.sp4 { bottom: -10%; right: 4%; font-size: 1.05rem; animation-delay: 2.3s; }
+
+@keyframes sparkle-twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.6) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.15) rotate(20deg); }
+}
+
+.hero-subtitle {
+  position: relative;
+  z-index: 2;
+  color: rgba(253, 246, 230, 0.85);
+  font-size: 0.95rem;
+  max-width: 340px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* simple original silhouette: a child holding a lantern, drawn as flat shapes (not traced from any reference image) */
+.lantern-figure {
+  position: relative;
+  z-index: 2;
+  width: 108px;
+  margin: 0 auto 18px;
+  opacity: 0.96;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hero-cta {
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* ---- click transition into the registration page ---- */
+.hero-transition-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(255, 216, 115, 0.25), transparent 60%),
+    linear-gradient(180deg, var(--forest-deepest) 0%, var(--forest-deep) 50%, var(--forest-mid) 100%);
+  opacity: 0;
+  transform: scale(1.04);
+  pointer-events: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.hero-transition-veil.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hero.is-leaving .hero-title-wrap,
+.hero.is-leaving .hero-subtitle,
+.hero.is-leaving .lantern-figure,
+.hero.is-leaving .hero-cta {
+  opacity: 0;
+  transform: translateY(-14px);
+}
+.hero.is-leaving .hero-cta { transform: translateY(6px) scale(0.96); }
+
+.hero-glow-ground {
+  position: absolute;
+  bottom: 18%;
+  left: 50%;
+  width: 220px;
+  height: 90px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(255, 216, 115, 0.35), transparent 70%);
+  filter: blur(4px);
+  z-index: 1;
+  pointer-events: none;
+}

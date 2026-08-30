@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard - Magic Home Admin</title>
+<link rel="stylesheet" href="/admin/assets/css/admin.css" />
+</head>
+<body>
+  <header class="dash-header">
+    <h1>Magic Home — รายชื่อผู้ลงทะเบียน</h1>
+    <div class="dash-actions">
+      <a href="/api/admin/export.csv">ส่งออก CSV</a>
+      <button id="logoutBtn">ออกจากระบบ</button>
+    </div>
+  </header>
+
+  <main class="dash-body">
+    <div class="summary-cards" id="summaryCards"></div>
+
+    <div class="table-wrap">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>ชื่อ-สกุล</th>
+            <th>ชื่อเล่น</th>
+            <th>อายุ</th>
+            <th>เบอร์โทร</th>
+            <th>สถานะ</th>
+            <th>บ้านที่ได้</th>
+            <th>ลงทะเบียนเมื่อ</th>
+            <th>จัดการ</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+      <div class="empty-state" id="emptyState" style="display:none;">ยังไม่มีผู้ลงทะเบียน</div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box" id="modalBox"></div>
+  </div>
+
+  <script src="/admin/assets/js/dashboard.js"></script>
+</body>
+</html>

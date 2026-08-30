@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ลงทะเบียนเข้าร่วมโครงการ - Magic Home</title>
+<link rel="stylesheet" href="/css/base.css" />
+<link rel="stylesheet" href="/css/register.css" />
+</head>
+<body class="reg-page">
+  <div class="container">
+    <div class="reg-header">
+      <h1>ลงทะเบียนเข้าร่วมโครงการ</h1>
+      <p>กรอกข้อมูลให้ครบถ้วน เพื่อเข้าสู่ขั้นตอนถัดไป</p>
+    </div>
+
+    <form class="reg-form" id="regForm" novalidate>
+      <div class="error-msg" id="errorMsg"></div>
+
+      <div class="section-title">ข้อมูลผู้เข้าร่วม</div>
+
+      <div class="field">
+        <label for="fullName">ชื่อ-สกุล</label>
+        <input type="text" id="fullName" name="fullName" required autocomplete="name" />
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="nickname">ชื่อเล่น</label>
+          <input type="text" id="nickname" name="nickname" required />
+        </div>
+        <div class="field">
+          <label for="age">อายุ</label>
+          <input type="number" id="age" name="age" min="1" max="120" required />
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="phone">เบอร์โทร</label>
+          <input type="tel" id="phone" name="phone" required autocomplete="tel" />
+        </div>
+        <div class="field">
+          <label for="email">อีเมล</label>
+          <input type="email" id="email" name="email" autocomplete="email" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="contactChannel">ช่องทางการติดต่อ <span class="hint">(IG, FB, Line)</span></label>
+        <input type="text" id="contactChannel" name="contactChannel" placeholder="เช่น IG: @username" />
+      </div>
+
+      <div class="section-title">ข้อมูลผู้ปกครอง</div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="guardian1Name">ชื่อผู้ปกครองท่านที่ 1</label>
+          <input type="text" id="guardian1Name" name="guardian1Name" />
+        </div>
+        <div class="field">
+          <label for="guardian1Phone">เบอร์โทรผู้ปกครองท่านที่ 1</label>
+          <input type="tel" id="guardian1Phone" name="guardian1Phone" />
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="guardian2Name">ชื่อผู้ปกครองท่านที่ 2</label>
+          <input type="text" id="guardian2Name" name="guardian2Name" />
+        </div>
+        <div class="field">
+          <label for="guardian2Phone">เบอร์โทรผู้ปกครองท่านที่ 2</label>
+          <input type="tel" id="guardian2Phone" name="guardian2Phone" />
+        </div>
+      </div>
+
+      <div class="section-title">บอกเล่าเกี่ยวกับตัวเอง</div>
+
+      <div class="field">
+        <label for="selfIntro">แนะนำตัวเองสั้นๆ ให้เข้าใจถึงตัวตน</label>
+        <textarea id="selfIntro" name="selfIntro"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="reason">เหตุผลที่อยากเข้าร่วมโครงการ</label>
+        <textarea id="reason" name="reason"></textarea>
+      </div>
+
+      <div class="reg-submit-row">
+        <button type="submit" class="pill-btn" id="submitBtn">ถัดไป</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="/js/register.js"></script>
+</body>
+</html>
